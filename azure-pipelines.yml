@@ -17,3 +17,17 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+  
+- task: AdvancedSecurity-Codeql-Init@1
+  inputs:
+    languages: 'python'
+
+- task: AdvancedSecurity-Codeql-Autobuild@1
+
+- task: AdvancedSecurity-Codeql-Analyze@1
+  inputs:
+    querysuite: 'security-and-quality'
+
+- task: AdvancedSecurity-Publish@1
+
+- task: AdvancedSecurity-Dependency-Scanning@1
